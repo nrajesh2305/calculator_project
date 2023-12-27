@@ -24,4 +24,9 @@ body
 {
     display: flex;
     position: absolute;
+    background-color: white;
+    width: 425px;
+    height: 65px;
+    margin-left: 32.5px;
+    margin-top: 45px;
 }
