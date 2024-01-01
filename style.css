@@ -24,11 +24,36 @@ body
 {
     display: flex;
     position: absolute;
-    background-color: white;
+    background-color: gray;
     width: 425px;
-    height: 65px;
+    height: 81.25px;
     margin-left: 32.5px;
     margin-top: 45px;
+    justify-content: flex-end;
+    gap: 3px;
+}
+
+.output_box
+{
+    flex-grow: 1;
+}
+
+.first_row_container div
+{
+    display: flex;
+    width: 106.25px;
+    height: 81.25px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.clear_button:hover
+{
+    transition: 0.5s;
+    background-color: rgb(161, 161, 161);
+    cursor: pointer;
 }
 
 .options_container
@@ -43,7 +68,6 @@ body
     margin-left: 32.5px;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .options_container div
