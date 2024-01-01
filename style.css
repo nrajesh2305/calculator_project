@@ -30,3 +30,39 @@ body
     margin-left: 32.5px;
     margin-top: 45px;
 }
+
+.options_container
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 425px;
+    height: 325px;
+    position: absolute;
+    background-color: orange;
+    margin-top: 135px;
+    margin-left: 32.5px;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.options_container div
+{
+    display: flex;
+    width: 106.25px;
+    height: 81.25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.options_container div:hover
+{
+    /* display: flex;
+    width: 106.25px;
+    height: 81.25px;
+    justify-content: center;
+    align-items: center; */
+    background-color:rgb(184, 120, 1);
+    transition: 0.5s;
+    cursor: pointer;
+}
