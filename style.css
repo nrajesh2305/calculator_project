@@ -28,7 +28,7 @@ body
     width: 425px;
     height: 81.25px;
     margin-left: 32.5px;
-    margin-top: 45px;
+    margin-top: 35px;
     justify-content: flex-end;
     gap: 3px;
 }
@@ -36,6 +36,8 @@ body
 .output_box
 {
     flex-grow: 1;
+    text-align: right;
+    color: rgb(25, 25, 255);
 }
 
 .first_row_container div
@@ -46,6 +48,7 @@ body
     background-color: white;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
     
 }
 
@@ -68,6 +71,7 @@ body
     margin-left: 32.5px;
     justify-content: space-around;
     align-items: center;
+    border-radius: 10px;
 }
 
 .options_container div
@@ -77,15 +81,11 @@ body
     height: 81.25px;
     justify-content: center;
     align-items: center;
+    font-size: 25px;
 }
 
 .options_container div:hover
 {
-    /* display: flex;
-    width: 106.25px;
-    height: 81.25px;
-    justify-content: center;
-    align-items: center; */
     background-color:rgb(184, 120, 1);
     transition: 0.5s;
     cursor: pointer;
