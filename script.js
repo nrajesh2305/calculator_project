@@ -52,19 +52,40 @@ function negate(num)
     return num * -1;
 }
 
-let choices = document.querySelectorAll("#choice");
+let numChoices = document.querySelectorAll("#choice");
+let operationChoices = document.querySelectorAll("#operation");
+
 let clear = document.querySelector("#clear");
-let outputBox = document.querySelector("#outputBox");
+let outputBox = "";
+let operation;
+outputBox = document.querySelector("#outputBox");
+
+let equal = document.querySelector("#equals");
 
 clear.addEventListener("click", () => 
 {
     outputBox.innerHTML = "";
 });
 
-for(let i = 0; i < choices.length; i++)
+for(let i = 0; i < operationChoices.length; i++)
 {
-    choices[i].addEventListener("click", function()
+    operationChoices[i].addEventListener("click", function()
     {
-        outputBox.innerText += choices[i].innerHTML;
+        outputBox.innerText += operationChoices[i].innerHTML;
+        operation = operationChoices[i];
     });
 }
+
+for(let i = 0; i < numChoices.length; i++)
+{
+    numChoices[i].addEventListener("click", function()
+    {
+        outputBox.innerText += numChoices[i].innerHTML;
+    });
+}
+
+equal.addEventListener("click", () => 
+{
+    outputBox.innerHTML = "";
+    outputBox.innerHTML = operate(operation, numChoices[0], numChoices[1]);// something to do with operate here. Figure something out.
+});
