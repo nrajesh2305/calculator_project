@@ -24,6 +24,7 @@ body
 {
     display: flex;
     position: absolute;
+    overflow: hidden;
     background-color: gray;
     width: 425px;
     height: 81.25px;

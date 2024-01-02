@@ -52,12 +52,19 @@ function negate(num)
     return num * -1;
 }
 
-let choice = document.querySelectorAll("#choice");
+let choices = document.querySelectorAll("#choice");
 let clear = document.querySelector("#clear");
 let outputBox = document.querySelector("#outputBox");
 
 clear.addEventListener("click", () => 
 {
-    outputBox.textContent = "";
     outputBox.innerHTML = "";
 });
+
+for(let i = 0; i < choices.length; i++)
+{
+    choices[i].addEventListener("click", function()
+    {
+        outputBox.innerText += choices[i].innerHTML;
+    });
+}
