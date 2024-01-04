@@ -1,16 +1,16 @@
 function add(num1, num2)
 {
-    return num1 + num2;
+    return toString(parseInt(num1) + parseInt(num2));
 }
 
 function subtract(num1, num2)
 {
-    return num1 - num2;
+    return toString(parseInt(num1) - parseInt(num2));
 }
 
 function multiply(num1, num2)
 {
-    return num1 * num2;
+    return toString(parseInt(num1) * parseInt(num2));
 }
 
 function divide(num1, num2)
@@ -19,31 +19,26 @@ function divide(num1, num2)
     {
         return "Error";
     }
-    return num1 / num2;
+    return toString(parseInt(num1) / parseInt(num2));
 }
-
-// We will get to this after making sure the operations work and pop up on the screen.
-// let firstNum = document.querySelector("#first_number");
-// let operator = document.querySelector("#operator");
-// let secondNum = document.querySelector("#second_number");
 
 function operate(operator, num1, num2)
 {
     if(operator == "+")
     {
-        add(num1, num2);
+        return add(num1, num2);
     }
     else if(operator == "-")
     {
-        subtract(num1, num2);
+        return subtract(num1, num2);
     }
     else if(operator == "*")
     {
-        multiply(num1, num2);
+        return multiply(num1, num2);
     }
     else
     {
-        divide(num1, num2);
+        return divide(num1, num2);
     }
 }
 
@@ -84,8 +79,51 @@ for(let i = 0; i < numChoices.length; i++)
     });
 }
 
+function getFirstNum()
+{
+    let firstNum = "";
+    for(let i = 0; i < outputBox.innerText.length; i++)
+    {
+        if(outputBox.innerText[i] == "+" || outputBox.innerText[i] == "*" || outputBox.innerText[i] == "/" || outputBox.innerText[i] == "-")
+        {
+            return firstNum;
+        }
+        firstNum += outputBox.innerText[i];
+    }
+}
+
+function getSecondNum()
+{
+    let secondNum = "";
+    for(let i = outputBox.innerText.length - 1; i >= 0; i--)
+    {
+        if(outputBox.innerText[i] == "+" || outputBox.innerText[i] == "*" || outputBox.innerText[i] == "/" || outputBox.innerText[i] == "-")
+        {
+            return secondNum;
+        }
+        secondNum = outputBox.innerText[i] + secondNum;
+    }
+}
+
+function getOperator()
+{
+    let operator = "";
+    for(let i = 0; i < outputBox.innerText.length; i++)
+    {
+        if(outputBox.innerText[i] == "+" || outputBox.innerText[i] == "*" || outputBox.innerText[i] == "/" || outputBox.innerText[i] == "-")
+        {
+            operator = outputBox.innerText[i];
+            return operator;
+        }
+    }
+}
+
 equal.addEventListener("click", () => 
 {
+    console.log(getOperator());
+    console.log(getFirstNum());
+    console.log(getSecondNum());
+    console.log(operate(getOperator(), parseInt(getFirstNum()), parseInt(getSecondNum())));
     outputBox.innerHTML = "";
-    outputBox.innerHTML = operate(operation, numChoices[0], numChoices[1]);// something to do with operate here. Figure something out.
+    outputBox.innerHTML = operate(getOperator(), getFirstNum(), getSecondNum());
 });
