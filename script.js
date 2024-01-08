@@ -1,16 +1,19 @@
 function add(num1, num2)
 {
-    return (Number(num1) + Number(num2)).toString();
+    const answer = Number(num1) + Number(num2);
+    return roundAnswer(answer, 3).toString();
 }
 
 function subtract(num1, num2)
 {
-    return (Number(num1) - Number(num2)).toString();
+    const answer = Number(num1) - Number(num2);
+    return roundAnswer(answer, 3).toString();
 }
 
 function multiply(num1, num2)
 {
-    return (Number(num1) * Number(num2)).toString();
+    const answer = Number(num1) * Number(num2);
+    return roundAnswer(answer, 3).toString();
 }
 
 function divide(num1, num2)
@@ -19,8 +22,18 @@ function divide(num1, num2)
     {
         return "Error";
     }
-    return (Number(num1) / Number(num2)).toFixed(3).toString();
+    const answer = Number(num1) / Number(num2);
+    return roundAnswer(answer, 3).toString();
 }
+
+
+// Source for code: https://www.altcademy.com/blog/how-to-round-numbers-in-javascript/
+function roundAnswer(num, decimalPlaces)
+{
+    const factor = Math.pow(10, decimalPlaces);
+    return Math.round(num * factor) / factor;
+}
+// Understand above code snippet, also END copied code segment.
 
 function operate(operator, num1, num2)
 {
@@ -50,6 +63,8 @@ function operate(operator, num1, num2)
 
 let numChoices = document.querySelectorAll("#choice");
 let operationChoices = document.querySelectorAll("#operation");
+let decimalChoice = document.querySelector("#decimal");
+let isDecimalClicked = false;
 
 let clear = document.querySelector("#clear");
 let outputBox = "";
@@ -61,6 +76,16 @@ let equal = document.querySelector("#equals");
 clear.addEventListener("click", () => 
 {
     outputBox.innerHTML = "";
+});
+
+
+decimalChoice.addEventListener("click" , () => 
+{
+    if(!isDecimalClicked)
+    {
+        outputBox.innerHTML += ".";
+        isDecimalClicked = true;
+    }
 });
 
 for(let i = 0; i < operationChoices.length; i++)
@@ -126,4 +151,5 @@ equal.addEventListener("click", () =>
     console.log(getSecondNum());
     console.log(operate(getOperator(), parseInt(getFirstNum()), parseInt(getSecondNum())));
     outputBox.innerHTML = operate(getOperator(), getFirstNum(), getSecondNum());
+    isDecimalClicked = false;
 });
