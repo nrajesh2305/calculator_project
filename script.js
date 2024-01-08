@@ -1,16 +1,16 @@
 function add(num1, num2)
 {
-    return toString(parseInt(num1) + parseInt(num2));
+    return (Number(num1) + Number(num2)).toString();
 }
 
 function subtract(num1, num2)
 {
-    return toString(parseInt(num1) - parseInt(num2));
+    return (Number(num1) - Number(num2)).toString();
 }
 
 function multiply(num1, num2)
 {
-    return toString(parseInt(num1) * parseInt(num2));
+    return (Number(num1) * Number(num2)).toString();
 }
 
 function divide(num1, num2)
@@ -19,11 +19,17 @@ function divide(num1, num2)
     {
         return "Error";
     }
-    return toString(parseInt(num1) / parseInt(num2));
+    return (Number(num1) / Number(num2)).toFixed(3).toString();
 }
 
 function operate(operator, num1, num2)
 {
+
+    if(operator == null && num2 == null)
+    {
+        return num1.toString();
+    }
+
     if(operator == "+")
     {
         return add(num1, num2);
@@ -40,11 +46,6 @@ function operate(operator, num1, num2)
     {
         return divide(num1, num2);
     }
-}
-
-function negate(num)
-{
-    return num * -1;
 }
 
 let numChoices = document.querySelectorAll("#choice");
@@ -124,6 +125,5 @@ equal.addEventListener("click", () =>
     console.log(getFirstNum());
     console.log(getSecondNum());
     console.log(operate(getOperator(), parseInt(getFirstNum()), parseInt(getSecondNum())));
-    outputBox.innerHTML = "";
     outputBox.innerHTML = operate(getOperator(), getFirstNum(), getSecondNum());
 });
