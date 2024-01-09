@@ -78,7 +78,7 @@ let fullOutput = "";
 
 clear.addEventListener("click", () => 
 {
-    outputBox.innerHTML = "0";
+    outputBox.innerHTML = "";
     isSecondNum = false;
     isDecimalClicked = false;
     fullOutput = "";
