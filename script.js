@@ -76,10 +76,9 @@ let equal = document.querySelector("#equals");
 let fullOutput = "";
 
 
-
 clear.addEventListener("click", () => 
 {
-    outputBox.innerHTML = "";
+    outputBox.innerHTML = "0";
     isSecondNum = false;
     isDecimalClicked = false;
     fullOutput = "";
@@ -121,7 +120,6 @@ for(let i = 0; i < numChoices.length; i++)
 {
     numChoices[i].addEventListener("click", function()
     {
-
         if(!isSecondNum)
         {
             isDecimalClicked = false;
@@ -131,14 +129,7 @@ for(let i = 0; i < numChoices.length; i++)
         }
         else
         {
-            if(outputBox.innerHTML.length == 0)
-            {
-                outputBox.innerHTML = numChoices[i].innerHTML;
-            }
-            else
-            {
-                outputBox.innerText += numChoices[i].innerHTML;
-            }
+            outputBox.innerText += numChoices[i].innerHTML;
 
             fullOutput += numChoices[i].innerHTML;
             console.log(fullOutput);
